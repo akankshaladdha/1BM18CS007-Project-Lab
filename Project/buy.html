@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <title>Buy</title>
+        <link rel="stylesheet" type="text/css" href="buystyle.css">
+        
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--Angular-->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    </head>
+    <body ng-app="cartApp">
+            <header>
+                    <div class="logo">BOOK PLANET</div>
+                    <div class="buy">BUY</div>
+                    <div class="search-box"></div>
+                    
+                    <nav>
+                        
+                        <ul>
+                            <input type="text" class="form-control">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            <li><a href="navbar.html">Home</a></li>
+                            <li><a href="buy.html" class="active">Buy</a></li>
+                            <li><a href="test.html">Sell</a></li>
+                            <li class="cart" ng-controller="removeCtrl"><a href="cart.html">
+                                <img src="shopping-cart.png" style="width:22px;height:22px;position:relative;top:15px;">
+                                <span class="cart__no">{{len}}</span>
+                            </a>
+                                <div class="dropdowna">
+                                    <div class="emptycart" ng-if="cart_empty">
+                                            <img src="emptyCart.png" alt="Empty">
+                                            <span>Your Cart is empty</span>
+                                    </div> 
+                                    <div class="dropdowna__item" ng-repeat="x in cart">
+                                        <img src="{{x.img}}" alt="{{x.title}}" class="dropdowna__img">
+                                        <span class="dropdowna__text">
+                                            <h1>{{x.title}}</h1>
+                                            <h3>{{x.price}}</h3>
+                                            <br>
+                                            <div class="buttons">
+                                                <button class="btn btn-primary" ng-click="buy([x.title,x.img,x.price])">Proceed to buy</a></button>
+                                                <button class="btn btn-danger" ng-click="removeCart(x.id)">Remove item</button>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                              </li>
+                            <li><a href="logsign1.html">Signin/Signup</a></li>
+        
+                        </ul>
+                    </nav>
+                    <div class="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                </header>
+        <section class="featured-categories">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4" style="margin-top: 100px;">
+                        <p>
+                            <a href="product.html"><img src="categories1.jpeg" width="175" height="300"></a>
+                        </p>
+                    </div>
+                    <div class="col-md-4" style="margin-top: 100px;">
+                        <p><a href="prod2.html"><img src="categories2.jpeg" width="175" height="300"></a></p>
+                    </div>
+                    <div class="col-md-4" style="margin-top: 100px;">
+                        <p><a href="prod3.html"><img src="categories3.jpeg" width="175" height="300"></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="Frequently Searched" ng-controller="getCtrl">
+            <div class="container">
+                <div class="title-box">
+                    <h2>Frequently Searched</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="product-top">
+                            <img src="product1.jpg" width="265" height="300">
+                            <div class="overlay-right">
+                                    <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                <button type="button" class="btn btn-secondary" title="Add to WishList">
+                                    <i class="fa fa-heart-o"></i>
+                                </button>
+                                <button type="button" class="btn btn-secondary" title="Add to Cart" ng-click="addCart(1)">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="product-bottom text centre">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                                    <h3>Elements of Mechanical Engineering</h3>
+                                    <h5>Rs.160</h5>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                            <div class="product-top">
+                                <img src="product2.jpg" width="270" height="300">
+                                <div class="overlay-right">
+                                        <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                    <button type="button" class="btn btn-secondary" title="Add to WishList">
+                                        <i class="fa fa-heart-o"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" title="Add to Cart" ng-click="addCart(2)">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                </div>
+                            </div>
+                            <div class="product-bottom text centre">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                        <h3>Basics of Electrical Engineering</h3>
+                                        <h5>Rs.200</h5>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-3">
+                                <div class="product-top">
+                                    <img src="product3.jpg" width="260" height="300">
+                                    <div class="overlay-right">
+                                            <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                        <button type="button" class="btn btn-secondary" title="Add to WishList">
+                                            <i class="fa fa-heart-o"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" title="Add to Cart" ng-click="addCart(3)">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                    </div>
+                                </div>
+                                <div class="product-bottom text centre">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                            <h3>Higher Engineering Mathematics</h3>
+                                            <h5>Rs.250</h5>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-3">
+                                    <div class="product-top">
+                                        <img src="product4.jpg" width="270" height="300">
+                                        <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                            <button type="button" class="btn btn-secondary" title="Add to WishList">
+                                                <i class="fa fa-heart-o"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-secondary" title="Add to Cart" ng-click="addCart(4)">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-bottom text centre">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                                <h3>Algoirthm in C</h3>
+                                                <h5>Rs.280</h5>
+                                    </div>
+                                </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            var check = function() {
+                if(!document.cookie)
+                {
+                    alert('Please log in to add the item.');
+                    return false;
+                }
+                var val = document.cookie.split('=')[1];
+                var user = val.split('%22');
+                var username = user[3];
+                var type = user[7];
+        
+                 if(type != 'buyer')
+                {
+                    alert('Sorry ' + username + ' you are not registered as a buyer');
+                    return false;
+                }
+                return true;
+            }    
+        </script>
+        <!-- App script-->
+        <script src="js/app.js"></script>
+    </body>
+</html>
