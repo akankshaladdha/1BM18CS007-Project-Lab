@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    overflow:hidden;
+}
+
+.content
+{
+    display: flex;
+}
+
+.main
+{
+    flex: 5;
+    padding: 20px;
+    overflow: auto;
+    background-color:#303030;
+    height: 615px;
+    color: white;
+}
+
+.sidenav
+{
+    flex: 1;
+    background-color: #252525;
+    padding: 20px;
+    height: 615px;
+}
+
+.sidenav a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px ;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    .content {   
+      flex-direction: column;
+    }
+  }
+
+  .header {
+    display: flex;
+    margin : 0;
+    position: sticky;
+    top:0;
+    background-color: #282828;
+  }
+  
+  .logo{
+      cursor: pointer;
+      align-self: center;
+  }
+
+ 
+  /*
+  .header > div {
+    color: white;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+  */
+  .profile{
+      display: inline-flex;
+    padding: 10px;
+    margin: 10px 10px 10px auto;
+  }
+
+  .old {
+    font-size: 50px;
+    color:black;
+    cursor: pointer;
+    user-select: none;
+  }
+  .new{
+      font-size: 50px;
+    color:red;
+    cursor: pointer;
+    user-select: none;
+  }

@@ -1,30 +1,30 @@
 
 <?php
 require_once("config.php");
-session_start();
 
 ?>
 
 <html>
 <head>
+  <link rel="stylesheet" href="editprofile.css">
     <title>Edit Profile</title>
 </head>
 
 <body>
 <div>
     <?php
+    session_start();
+
     $db_host="localhost";
     $db_user="root";
     $db_pass="";
     $db_name="self";
     
     $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
-    $first=$_SESSION['firstname'];
-    $sql = " select * from login where firstname = '".$first."' limit 1";
+    $email= $_SESSION['email'];
+    $sql = " select * from login where email = '".$email."' limit 1";
     $result= mysqli_query($con,$sql);
     $row=mysqli_fetch_array($result);
-    
-   
     
     if(isset($_POST['save']))
     { 
@@ -34,49 +34,41 @@ session_start();
         $phone1 = $_POST['phone'];
         $dob1 = $_POST['dob'];
        
-       if(isset($_POST['phone'])) {
+        $sql = "UPDATE login SET lastname = '".$lname1."',firstname = '".$fname1."' ,phonenumber ='".$phone1."', datebirth = '".$dob1."' WHERE email= '".$email."' ";
+        if(mysqli_query($con,$sql) == true)
         {
-                $sql = "UPDATE login SET phonenumber ='".$phone1."' WHERE firstname= '". $first."' ";
-                
-        
-        }
-        
-    }
-        /*if(isset($_POST['dob'])){
-        
-                $dob2 = TO_DATE('$dob1','DD/MM/YYYY') ;   
-                $sql = "UPDATE login SET datebirth ='".$dob2."' WHERE firstname= '". $first."' ";
-        }*/
-        $sql = "UPDATE login SET lastname = '".$lname1."', email = '".$email1."' , firstname = '".$fname1."' WHERE firstname= '". $first."' ";
-        if(mysqli_query($con,$sql) == true){
+          $_SESSION['firstname']=$fname1;
+          $_SESSION['lastname']=$lname1;
+          $_SESSION['phonenumber']=$phone1;
+          $_SESSION['datebirth']=$dob1;
 
-        echo 'Details are updated';
-        header('location: editprofile.php');
-
-        }
-    }
-    
+          header('location:editprofile.php');
+        
+         
+  }
+  }
+  
     ?>
-    <h1>Hello <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></h1>
-    <br><br><br>
-    <div class="profile">
-        <form method="POST">
-     <label><b>Firstname : </b>
-     <input type="text" name="fname" value="<?php echo $row['firstname']; ?>" placeholder="enter a new firstname" required>
+   
+      <div class="top">
+        <h1>Hello <?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?></h1>
+      </div>
+
+    <div class="modal">
+             <form method="POST" class="modal-content">
+          <div class="container">
+     <label><b>Firstname  </b>
+     <input type="text" name="fname" value="<?php echo $_SESSION['firstname']; ?>" placeholder="enter a new firstname" required>
 </label>
-<br><br>
-<label><b>Lastname : </b>
-     <input type="text" name="lname" value="<?php echo $row['lastname']; ?>" placeholder="enter a new lastname" required>
+<br>
+<label><b>Lastname  </b>
+     <input type="text" name="lname" value="<?php echo $_SESSION['lastname']; ?>" placeholder="enter a new lastname" required>
 </label>
-<br><br>
-<label><b>Email : </b>
-     <input type="email" name="mail" value="<?php echo $row['email']; ?>" placeholder="enter a new email id" required>
-</label>
-<br><br>
+<br>
 
 
-<label><b>Phone : </b>
-     <input id="intTextBox" maxlength="10" name="phone" value="<?php echo $row['phonenumber']; ?>">
+<label><b>Phone  </b>
+     <input id="intTextBox" maxlength="10" name="phone" value="<?php if($row['phonenumber']){echo $row['phonenumber'];} ?>">
      <script>
 function setInputFilter(textbox, inputFilter) {
   ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
@@ -99,17 +91,21 @@ setInputFilter(document.getElementById("intTextBox"), function(value) {
   return /^-?\d*$/.test(value); });
     </script>
 </label>
-<br><br>
+<br>
 
 
-<label><b>Date of birth : </b>
-     <input name="dob" type="date">
+<label><b>Date of birth  </b>
+     <input name="dob" type="date" value="<?php echo $_SESSION['datebirth']; ?>" >
 </label>
-<br><br>
-
+<br>
 <button type="submit"  name="save"  onClick="window.location.href=window.location.href">Save</button>
-<input type="reset" value="Cancel" name="cancel">
-<a href="admin.php">Go back to listening music</a>
+<button type="reset" name="cancel" class="reset">Cancel</button>
+
+</div>
+
+<div class="bottom" style="background-color:#D0D0D0">
+<p class="line"><a href="admin.php">Go back to listening music</a></p>
+    </div>
 </form>
 </div>
 </div>

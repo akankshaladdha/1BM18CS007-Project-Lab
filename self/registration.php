@@ -52,7 +52,7 @@
 
 		$user_activation_code = rand(100000,9999999);
 		$activation = $user_activation_code;
-		$sql = "INSERT INTO login (firstname, lastname, email, password ,code, gender) VALUES(?,?,?,?,?,?)";
+		$sql = "INSERT INTO login (firstname, lastname, email, password ,code, gender,status) VALUES(?,?,?,?,?,?,false)";
 		$stmtinsert = $db->prepare($sql);
 		$result = $stmtinsert->execute([$firstname, $lastname, $emailid,  $password, $activation , $gender1]);
 		if($result)

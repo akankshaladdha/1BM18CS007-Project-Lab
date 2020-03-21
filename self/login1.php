@@ -26,7 +26,13 @@
      if($row['firstname']==$first && $row['email']==$emailid && $row['password']==$pass && $row['code']==$code && $count == 1)
      {
          $_SESSION['firstname']=$first;
+         $_SESSION['lastname']=$row['lastname'];
+         $_SESSION['email']=$emailid;
+         $sql = "UPDATE login SET status= true WHERE firstname='".$first."'";
+         if(mysqli_query($con,$sql) == true){
+
          header('location: admin.php');
+         }
      }
      else
      {

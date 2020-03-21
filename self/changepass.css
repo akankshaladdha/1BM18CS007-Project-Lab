@@ -1,0 +1,141 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    overflow:hidden;
+    background-color: gray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+  }
+  
+  label{
+    text-align: center;
+  }
+  
+  input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 12px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .top{
+    text-align: left;
+    background-color: lawngreen;
+    border: 1px solid gray;
+  }
+ 
+ .container input{
+     padding: 10px;
+  }
+ .container {
+   padding: 16px;
+   margin-left: 12px;
+  }
+  
+  .bottom{
+   height: 60px;
+   text-align: center;
+   padding-top: 12px;
+  }
+  
+  .bottom a:hover{
+     color:darkblue;
+     text-decoration: underline;
+  }
+  
+  .modal {
+    margin: 0px 27.5% 0px 27.5%;
+    position: absolute; 
+    width: 45%; 
+    border: none;
+  }
+  
+  .modal-content {
+    
+   background-color: white;
+   margin: 4% auto 4.75% auto; 
+   border: 1px solid black;
+   width: 60%; 
+   align-items: center;
+  }
+  
+
+.modal-content:after {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 0px;
+    background-color: #efefef;
+  }
+  .modal .header{
+      text-align: center;
+      background-color: pink;
+      height: 70px;
+      margin-top: 0px;
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  .modal .header .line{
+    text-align: center;
+    font-size: 30px;
+    font-weight : bold;
+    color :black;
+    padding-top:17px;
+    margin-top: 0px;
+
+  }
+  .bottom{
+    height: 60px;
+    text-align: center;
+    padding-top: 12px;
+   }
+
+   .bottom button {
+  
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
+    outline:none;
+    border-radius: 10000px;
+    
+  }
+  .bottom .reset {
+  
+    background-color:rgba(220,0,0,1);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0px 8px 150px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    outline:none;
+    box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
+    
+  }
+  
+  .bottom button:hover {
+    background-color: green;
+  }
+
+  .bottom .reset:hover {
+    background-color: red;
+  }
+  
+  .bottom a{
+      text-decoration: none;
+      color: white;
+  }
+  .bottom a:hover{
+      text-decoration: none;
+      color: white;
+  }
+  

@@ -21,12 +21,21 @@
      $row=mysqli_fetch_array($result);
      $count=mysqli_num_rows($result);
 
+
      if($row['firstname']==$first && $row['email']==$emailid && $row['password']==$pass && $count == 1)
      {
          $_SESSION['firstname']=$first;
          $_SESSION['lastname']=$row['lastname'];
          $_SESSION['email']=$emailid;
+          $_SESSION['phonenumber']="";
+         $_SESSION['id']=$row['id'];
+         if($row['status']==1){
          header('location: admin.php');
+         }
+         else
+         {
+           echo 'E-mail not verified';
+         }
      }
      else
      {

@@ -8,14 +8,14 @@
     var song = new Audio();
     
     var seekBar = document.querySelector('.seek-bar');
-    var playButton = document.querySelector('.audio-player .playorpause');
-    var forwardButton = document.querySelector('.audio-player .next');
-    var backwardButton = document.querySelector('.audio-player .back');
+    var playButton = document.querySelector('.playorpause');
+    var forwardButton = document.querySelector('.next');
+    var backwardButton = document.querySelector('.back');
     var playButtonIcon = playButton.querySelector('i');
     var forwardButtonIcon = forwardButton.querySelector('i');
     var backwardButtonIcon = backwardButton.querySelector('i');
     var fillBar = seekBar.querySelector('.fill');
-    var replayButton = document.querySelector('.audio-player .loop');
+    var replayButton = document.querySelector('.loop');
     var replayButtonIcon = replayButton.querySelector('i');
     var mouseDown = false;
     var flag=0;
@@ -25,17 +25,25 @@
     durtimetext = document.getElementById("durtimetext");    
     song.addEventListener("timeupdate",seektimeupdate,false);
     
-    window.onload = loadSong;
-    function loadSong(){
-        
+     song.autoplay=false;
+
+    function selectSong(abc)
+    {
+        song.src = "music/" + abc;
+        playorpausesong();
+    }
+
+    function loadSong()
+    {    
         song.src = "music/" + songs[currentSong];
-        song.play();    
+        playorpausesong();    
     } 
 
-    song.addEventListener('ended',function(){
+    song.addEventListener('ended',function()
+    {
         durtimetext.innerHTML ="0:00";
         next();
-      });
+    });
      
     function next()
     {
@@ -44,6 +52,7 @@
         loadSong();
         playButtonIcon.className = 'ion-pause';
     }
+
     function back()
     {
         currentSong = (currentSong - 1) ;
@@ -52,20 +61,24 @@
         loadSong();
         playButtonIcon.className = 'ion-pause';
     }
-    function playorpausesong(){
-    song.playbackrate = 1; 
-    if(song.paused){
-        song.play();
-        playButtonIcon.className = 'ion-pause';
-    }
-    else{
-        song.pause();
-        playButtonIcon.className = 'ion-play';
-        }
-}
 
+    function playorpausesong()
+    {
+        song.playbackrate = 1; 
+        if(song.paused)
+        {
+            song.play();
+            playButtonIcon.className = 'ion-pause';
+        }
+        else
+        {
+            song.pause();
+            playButtonIcon.className = 'ion-play';
+        }
+    }
     
-    song.addEventListener('timeupdate', function () {
+    song.addEventListener('timeupdate', function () 
+    {
         if (mouseDown) return;
     
         let p = song.currentTime / song.duration;
@@ -73,25 +86,29 @@
         fillBar.style.width = p * 100 + '%';
     });
     
-    function clamp (min, val, max) {
+    function clamp (min, val, max) 
+    {
         return Math.min(Math.max(min, val), max);
     }
     
-    function getP (e) {
+    function getP (e) 
+    {
         let p = (e.clientX - seekBar.offsetLeft) / seekBar.clientWidth;
         p = clamp(0, p, 1);
     
         return p;
     }
     
-    seekBar.addEventListener('mousedown', function (e) {
+    seekBar.addEventListener('mousedown', function (e) 
+    {
         mouseDown = true;
         let p = getP(e);
         fillBar.style.width = p * 100 + '%';
     });
 
     
-    window.addEventListener('mousemove', function (e) {
+    window.addEventListener('mousemove', function (e) 
+    {
         if (!mouseDown) return;
     
         let p = getP(e);
@@ -99,7 +116,8 @@
         fillBar.style.width = p * 100 + '%';
     });
     
-    window.addEventListener('mouseup', function (e) {
+    window.addEventListener('mouseup', function (e) 
+    {
         if (!mouseDown) return;
     
         mouseDown = false;
@@ -111,8 +129,8 @@
         song.currentTime = p * song.duration;
     });
 
-    function seektimeupdate(){
-        
+    function seektimeupdate()
+    {    
         var nt = song.currentTime * (100 / song.duration);
         seekbar.value = nt;
         var curmins = Math.floor(song.currentTime / 60);
@@ -130,35 +148,9 @@
         { curtimetext.innerHTML = curmins+":"+cursecs;
             durtimetext.innerHTML = durmins+":"+dursecs;
         }    
-}
-function replay()
-{
-    loadSong();
-}
-    
+    }
 
-
-
-
-/*function Alert(){
-    setTimeout(function () { 
-        swal({
-          title: "Do you wish to logout?",
-          //icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: 'red',
-            confirmButtonText: 'Yes, Logout!',
-            background: 'black',
-        },
-        function(isConfirm){
-          if (isConfirm) {
-           
-            window.location = "regorlogin.php";
-            
-          }
-          
-        }); }, 100);
-    
-    }*/
-    
+    function replay()
+    {
+        loadSong();
+    }

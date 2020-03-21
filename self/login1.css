@@ -8,7 +8,7 @@ body{
   
   label{
     text-align: center;
-    color: #FFE4E1;
+    color: black;
   }
   
   input {
@@ -61,10 +61,10 @@ body{
   }
   
   img.avatar {
-   width: 39%; 
-   height: 37%;
+   width: 37.5%; 
+   height:33.5%;
    background-color: black;
-   border-radius: 110px;
+   border-radius: 140px;
   }
   
   .container {
