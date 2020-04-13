@@ -1,0 +1,139 @@
+.buttons{
+    display: flex;
+    height:70px;
+    justify-content: center;
+  align-items: center;
+  background-color: #282828;
+
+}
+.footer{
+    display: flex;
+    height:30px;
+  align-items: flex-start;
+  background-color: #282828;
+  
+}
+
+.seek-bar {
+display: flex;
+align-items: center;
+height: 5px;
+width: 400px;
+background-color:rgb(96,96,96);
+align-items: center;
+border-radius: 100000px;
+cursor: pointer;  
+margin-left: 50px;
+order: 2;
+
+}
+.current-time{
+      
+      color:white;
+      display: flex;
+      order: 1;
+      margin-left: 550px;
+      margin-bottom:5px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  .duration-time{
+
+      margin-left: 50px;
+      color:white;
+      display: flex;
+      order: 3;
+      margin-bottom:15px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+.playorpause {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background-color:black;
+  color: white;
+  font-size:23px;
+  border-radius: 100000px;
+  cursor: pointer;
+  margin-left: 5px;
+    margin-right: 5px;
+  outline: 0;
+}
+.next{
+  display: block;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color:transparent;
+  color:black;
+  font-size:23px;
+  cursor: pointer;
+  margin-left: 5px;
+    margin-right: 5px;
+  outline: 0;
+}
+.loop{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color:transparent;
+  color:black;
+  font-size:23px;
+  cursor: pointer;
+  margin-left: 5px;
+    margin-right: 5px;
+  outline: 0;
+}
+.shuffle{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color:transparent;
+  color:black;
+  font-size:23px;
+  cursor: pointer;
+  margin-left: 5px;
+    margin-right: 9px;
+  outline: 0;
+}
+.back{
+  display: block;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color:transparent;
+  color:black;
+  font-size:23px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 8px;
+  outline: 0;
+}
+.button .playorpause
+{
+width: 10px;
+height: 10px;
+border-style: solid;
+border-color: #202020;
+}    
+ .seek-bar  .fill {
+      height: 5px;
+      background-color:black;
+      border-radius: 100000px;
+  }
+  .seek-bar .handle {
+      width: 7px;
+      height: 7px;
+      background-color:black;
+      border-radius: 100000px;
+      margin-left: -5px;
+      transform: scale(1.75);
+      transition: all 0.1s;
+  }
+     .seek-bar .handle:hover {
+          background-color: lighten(black, 10%);
+          transform: scale(2.25);
+      }
