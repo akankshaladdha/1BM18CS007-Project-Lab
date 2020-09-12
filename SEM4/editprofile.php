@@ -62,7 +62,7 @@ require_once("config.php");
     $db_host="localhost";
     $db_user="root";
     $db_pass="";
-    $db_name="self";
+    $db_name="project_4";
     
     $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
     $email= $_SESSION['email'];
@@ -89,13 +89,13 @@ require_once("config.php");
         if(mysqli_query($con,$sql) == true)
         {
             $_SESSION['firstname']=$fname1;
-            $_SESSION['phonenumber']=$phone1;
             $_SESSION['datebirth']=$dob1;
             header('location:editprofile.php'); 
         }
 
         
-        
+        $_SESSION['phonenumber']=$phone1;
+
            
 
            
@@ -109,8 +109,10 @@ require_once("config.php");
       <img src="menu.png" width="60px" height="70px">
     </div>
 
+
+
     <div class="premium">
-    <button style='font-size:22px' onclick="document.getElementById('member').style.display='block'" ><i class='fas fa-crown'></i>Premium</button>
+    <button style='font-size:24px; outline:none;cursor:pointer; padding:10px; color:#d8d8d8;font-weight:bold;background:#282828; border:none;'><i class='fas fa-crown'></i>Premium</button>
   </div>
 
 
@@ -154,7 +156,7 @@ require_once("config.php");
         $db_host="localhost";
         $db_user="root";
         $db_pass="";
-        $db_name="self";
+        $db_name="project_4";
               
         $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
         $emailid=$_SESSION['email'];
@@ -177,26 +179,31 @@ require_once("config.php");
   <div class="content">
 
     <div class="sidenav">
-      <div><a href="#about">Home</a></div><br>
-      <div><a href="#services">Liked Songs</a></div><br>
-      <div><a href="#clients">Trending</a></div><br>
-      <div><a href="editprofile.php">Edit Profile</a></div><br>
-      <div><a href="changepassword.php">Change Password</a></div><br>
-      <div><a href="#about">About Us</a></div><br>
-      <div><input type="button" class="log" value="Logout" onclick="document.getElementById('logout').style.display = 'block'"></div>
+      <div  class="side_style"><a href="admin.php">Home</a></div><br>
+      <div  class="side_style" onclick="liked_visit()"><a href="#liked_songs">Liked Songs</a></div><br>
+      <div  class="side_style" onclick="liked_visit()"><a href="#trending">Trending</a></div><br>
+      <div  class="side_style"><a href="editprofile.php">Edit Profile</a></div><br>
+      <div  class="side_style"><a href="changepassword.php">Change Password</a></div><br>
+      <div  class="side_style"><a href="regorlogin.php">About Us</a></div><br>
+      <div  class="side_style"><input type="button" class="log" value="Logout" onclick="document.getElementById('logout').style.display = 'block'"></div>
     </div>
 
+    <script>
+      function liked_visit(){
+      alert('Visit home page');
+      }
+  </script>
     <div class="main">
       
       <form method="POST" class="modal-content">
           
       <div class="container">
         <label><b>Firstname  </b><br>
-        <input class="details" type="text" name="fname" value="<?php echo $_SESSION['firstname']; ?>" placeholder="enter a new firstname" required>
+        <input class="details" type="text" name="fname" value="<?php echo $_SESSION['firstname']; ?>" placeholder="enter a new firstname" autocomplete="off" required>
         </label>
         <br>
         <label><b>Lastname  </b><br>
-        <input class="details" type="text" name="lname" value="<?php echo $_SESSION['lastname']; ?>" placeholder="enter a new lastname" required>
+        <input class="details" type="text" name="lname" value="<?php echo $_SESSION['lastname']; ?>" placeholder="enter a new lastname" autocomplete="off" required>
         </label>  
         <br>
 
@@ -227,7 +234,7 @@ require_once("config.php");
         <br>
 
         <label><b>Date of birth  </b><br>
-            <input class="details" name="dob" type="date" value="<?php echo $_SESSION['datebirth']; ?>" >
+            <input class="details" name="dob" type="date" value="<?php echo $_SESSION['datebirth']; ?>" autocomplete="off">
         </label>
         <br>
         
