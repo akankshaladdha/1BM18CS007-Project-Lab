@@ -1,6 +1,6 @@
 .buttons{
     display: flex;
-    height:70px;
+    height:80px;
     justify-content: center;
   align-items: center;
   background-color: #282828;
@@ -8,10 +8,10 @@
 }
 .footer{
     display: flex;
-    height:30px;
+    height:32px;
   align-items: flex-start;
   background-color: #282828;
-  
+  margin-bottom: 0px;
 }
 
 .seek-bar {
