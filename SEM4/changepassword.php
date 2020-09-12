@@ -65,7 +65,7 @@ require_once("config.php");
     $db_host="localhost";
     $db_user="root";
     $db_pass="";
-    $db_name="self";
+    $db_name="project_4";
     
     $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
     $email= $_SESSION['email'];
@@ -83,7 +83,9 @@ require_once("config.php");
             $sql = "UPDATE login SET password = '".$new."' WHERE loginemail= '". $email."' "; 
             if(!mysqli_query($con,$sql))
             {
-                echo "error updating password";
+                echo '<script>';
+                echo "alert('Error updating password')";
+                echo '</script>';
             }
            
             if(mysqli_query($con,$sql) == true)
@@ -91,22 +93,28 @@ require_once("config.php");
                 $subject="Security Alert !!";
                 $to=$email;
                 $message =  " Hello " . $_SESSION['firstname'] . " " .$_SESSION['lastname'] . " \n Your password was recently changed. You are getting this email to make sure it is you. Kindlyb use your new password to login to your account.\n";
-                $from= 'nitesh.cs18@bmsce.ac.in';
-                mail($to, $subject, $message, 'From: nitesh.cs18@bmsce.ac.in');
+                $from= 'akankshaladdha0625@gmail.com';
+                mail($to, $subject, $message, 'From: akankshaladdha0625@gmail.com');
                 
-                echo "Password changed successfully";
+                echo '<script>';
+                echo "alert('Password changed successfully')";
+                echo '</script>';   
             }
 
             $sql = "UPDATE registration SET password = '".$new."' WHERE email= '". $email."' "; 
             if(!mysqli_query($con,$sql))
             {
-                echo "error updating password";
+              echo '<script>';
+              echo "alert('Error updating password')";
+              echo '</script>';             
             }
 
         }
         else
         {
-            echo 'Enter the correct password.';
+          echo '<script>';
+          echo "alert('Enter the correct password')";
+          echo '</script>';    
         }
     }
     
@@ -121,7 +129,7 @@ require_once("config.php");
     </div>
 
     <div class="premium">
-    <button style='font-size:22px' onclick="document.getElementById('member').style.display='block'" ><i class='fas fa-crown'></i>Premium</button>
+    <button style='font-size:24px; outline:none;cursor:pointer; padding:10px; color:#d8d8d8;font-weight:bold;background:#282828; border:none;'><i class='fas fa-crown'></i>Premium</button>
   </div>
 
 
@@ -165,7 +173,7 @@ require_once("config.php");
         $db_host="localhost";
         $db_user="root";
         $db_pass="";
-        $db_name="self";
+        $db_name="project_4";
               
         $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
         $emailid=$_SESSION['email'];
@@ -190,30 +198,34 @@ require_once("config.php");
   <div class="content">
 
     <div class="sidenav">
-      <div><a href="#about">Home</a></div><br>
-      <div><a href="#services">Liked Songs</a></div><br>
-      <div><a href="#clients">Trending</a></div><br>
-      <div><a href="editprofile.php">Edit Profile</a></div><br>
-      <div><a href="changepassword.php">Change Password</a></div><br>
-      <div><a href="#about">About Us</a></div><br>
-      <div><input type="button" class="log" value="Logout" onclick="document.getElementById('logout').style.display = 'block'"></div>
+      <div class="side_style"><a href="admin.php">Home</a></div><br>
+      <div class="side_style" onclick="liked_visit()"><a href="#services">Liked Songs</a></div><br>
+      <div class="side_style" onclick="liked_visit()"><a href="#clients">Trending</a></div><br>
+      <div class="side_style"><a href="editprofile.php">Edit Profile</a></div><br>
+      <div class="side_style"><a href="changepassword.php">Change Password</a></div><br>
+      <div class="side_style"><a href="regorlogin.php">About Us</a></div><br>
+      <div class="side_style"><input type="button" class="log" value="Logout" onclick="document.getElementById('logout').style.display = 'block'"></div>
     </div>
-
+    <script>
+      function liked_visit(){
+      alert('Visit home page');
+      }
+  </script>
 <div class="main">
       
       <form method="POST" class="modal-content">
           
         <div class="container">
             <label><b>Current Password  </b><br>
-            <input type="password" name="cpass" class="details" placeholder="enter current password" required>
+            <input type="password" name="cpass" class="details" placeholder="enter current password" autocomplete="off" required>
             </label>
             <br>
             <label><b>New Password  </b><br>
-            <input type="password" name="npass" class="details" placeholder="enter new password" required>
+            <input type="password" name="npass" class="details" placeholder="enter new password" autocomplete="off" required>
             </label>
             <br>
             <label><b>Confirm New Password  </b><br>
-            <input type="password" name="cnpass" class="details" placeholder="confirm new password" required>
+            <input type="password" name="cnpass" class="details" placeholder="confirm new password" autocomplete="off" required>
             </label>
             <br>
         </div>
