@@ -1,7 +1,7 @@
 
-  #logout ,#member{
+  #logout ,#member,#display_details{
     display: none;
-    background-image: url('Cinnamint.jpg');
+    background-image: url('images/alert_bg.jpg');
     position: absolute;
     width: 400x;
     height: 140px;
@@ -18,7 +18,8 @@
 
   }
 
-  #logout .yes ,#member .yes{
+  
+  #logout .yes ,#member .yes,#display_details .yes{
         background-color:limegreen;
        position: absolute;
         border-radius: 5px;
@@ -73,9 +74,9 @@
     box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
 }
 
-#info {
+#info ,#already{
     display: none;
-    background-image: url('Cinnamint.jpg');
+    background-image: url('images/alert_bg.jpg');
     /*
     background-image: linear-gradient(180.3 deg, rgba(221,221,221,1) 5.5%, rgba(110,136,161, 1) 90.2%);    
     */
@@ -93,27 +94,27 @@
     z-index: 1;
   }
 
-  #info .info-contents{
+  #info .info-contents,#already .info-contents{
       padding-bottom: 20px;
         font-size: 18px;
   }
-  #info label{
+  #info label,#already label{
       padding: 6px;
       display: flex;
       line-height: 2px;
       text-align: right;
   }
  
-  #info  .no:hover{
+  #info  .no:hover,#already .yes:hover{
       text-decoration: none;
       background-color:#56a5ec;
   }
-  #info .message{
+  #info .message,#already .message{
       text-align:left;
       font-size: 25px;
       padding-bottom: 5px;
   }
-  #info .no {
+  #info .no, #already .yes{
     background-color: #82cafa;
     position: absolute;
     top: 85%;
