@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body 
+{
+    font-family: Verdana, sans-serif;
+    margin:0;
+    height:100%;
+    padding-bottom: 0px;
+    /*
+    overflow: hidden;
+    */
+}
+
+.content
+{
+    display:flex;
+    flex-direction: column;
+    height: 150vh;
+}
+
+.header
+{
+    display: flex;
+    flex-direction: row;
+    flex: 10%;
+    background-color: coral;
+}
+
+.options
+{
+    display: flex;
+    flex-direction: row;
+    margin:5px 35px 5px auto; 
+}
+
+.option{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    margin-bottom: 0px;
+}
+
+.btn, .btn1{
+    border: none;
+    height: 35px;
+    padding-right: 17px;
+    padding-left: 17px;
+    color:white;
+    background-color: black;
+    border-radius: 100px;
+    font-size: 15.5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.line{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.mySlides 
+{
+  	display: none;
+}
+
+.mySlides img{
+	display: block;
+	height: 100%;
+	width: 100%;  
+}
+
+.slideshow-container {
+  flex: 80%;
+  position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+/*
+.text {
+  color:  blue;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 300px;
+  width: 100%;
+  text-align: center;
+}
+*/
+
+.quote1{
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	top: 8%;
+	left: 13%;
+}
+
+.quote2 {
+	color: black;
+	font-size: 25px;
+	font-style: italic;
+	position: absolute;
+	top: 30%;
+	left: 35%;
+}  
+
+.sub
+{
+	font-size: 20px;
+	float: right;
+}
+
+.quote3{
+	color: #f2f2f2;
+	font-size: 20px;
+	font-style: italic;
+	position: absolute;
+	top: 25%;
+	left: 45%;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.footer{
+    flex: 15%;
+    background-color: #343a40!important;  margin-bottom: 0px;
+  padding-bottom: 0px;
+  position:sticky;
+  height: 130px;
+}
+
+.icons
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  cursor: pointer;
+  color:black;
+}
+
+.social
+{
+	font-size: 35px;
+	margin-left: 22px;
+  margin-right: 22px;
+  padding-top:30px;
+}
+
+.social a{
+	text-decoration: none;
+	color: black;
+}
+
+.copyright{
+	float: right;
+  margin-right: 20px;
+  color: #d8d8d8;
+}
+
+.navbar.mod
+{
+  padding: 1.6% 0%;
+}
+.nav-item 
+{
+  font-size: 20px;
+}
+.web_title 
+{
+  font-size:24px;
+  padding: 10px;
+  color: #d8d8d8;
+
+}
+.web_title:hover
+{
+   text-decoration:none;
+   color: #d8d8d8;
+}
