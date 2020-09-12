@@ -1,126 +1,108 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url('home6.jpg');
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  label{
-    text-align: center;
-    color: black;
-  }
-  
-  input {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  .container button {
-  
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 25%;
-    box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
-    
-  }
-  
-  .container button:hover {
-    background-color: green;
-  }
-  
-  .cancelbtn {
-   width: auto;
-   padding:7px 10px ;
-   background-color:#56a5ec;
-   margin-bottom:5px;
-   box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
-  
-  }
-  
-  .cancelbtn:hover{
-     background-color: darkcyan;
-  }
-  
-  .container input{
-     padding: 10px;
-  }
-  
-  .imgcontainer {
-   text-align: center;
-   margin: 24px 0 35px 0;
-   position: relative;
-  }
-  
-  img.avatar {
-   width: 37.5%; 
-   height:33.5%;
-   background-color: black;
-   border-radius: 140px;
-  }
-  
-  .container {
-   padding: 16px;
-   margin-left: 12px;
-  }
-  
-  .bottom{
-  
-   padding: 1.5px 10px 10px 10px;
-   height: 50px;
-   text-align: center;
-  }
-  
-  span{
-     position: relative;
-     top:70%;
-     margin-left:130px;
-  }
-  span a{
-     text-decoration: none;
-     color:#E7DADA;
-     font-size: 16px;
-     vertical-align: middle;
-  }
-  span a:hover{
-     color:darkblue;
-     text-decoration: underline;
-  }
-  
-  .modal {
-    margin-top: 70px;
-    margin-left: 475px;
-    position: relative; 
-    width: 35%; 
-    height: 65%;
-    /*overflow: hidden; 
-    */
-  }
-  
-  .modal-content {
-   background-color: transparent;
-   margin: 5% auto 5% auto; 
-   border: 1px solid black;
-   width: 80%; 
+
+*{
+   box-sizing: border-box;
+   outline: none ;
+ }
+ 
+ body{
+   margin: 0px;
+   font-family: Arial, Helvetica, sans-serif;
+   background-image: url('images/login1_bg.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+ 
+ .modal{
+   display: flex;
+   flex-direction: column;
    align-items: center;
-  }
-  .container .line{
-     text-align: center;
-     font-size: 14px;
-     font-weight : bold;
-     color: black;
-  }
-  .modal .warning{
-     top: 2%;
-     position: absolute;
-    right: 20.5%;
-    display: none;
-  }
+   justify-content: center;
+   height: 100%;
+ }
+ 
+ .modal-content{
+   display: flex;
+   flex-direction: column;
+   border: 1px solid black;
+   width: 30%;
+   /*background-color:#303030;*/
+   background-color: transparent;
+ }
+ 
+ .imgcontainer{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+ 
+ .avatar{
+   border-radius: 10000px;
+   width: 40%;
+ }
+ 
+ .container{
+   display: flex;
+   flex-direction: column;
+   padding: 15px 40px 0px 30px;
+   flex: 5;
+ }
+ 
+ .btn{
+   display: flex;
+   align-items: center;
+   margin: 20px 0px 20px 15px;
+ }
+ 
+ .btn .login_btn{
+   background-color: #4CAF50;
+   font-size: 15px;
+   padding: 8px 12px;
+   width: 30%;
+   border: none;
+   margin-left: 20px;
+   box-shadow:inset 2px 2px 3px rgba(255,255,255,0.6),inset -2px -2px 3px rgba(0,0,0,0.6); 
+ }
+ 
+ .btn .login_btn:hover{
+   cursor: pointer;
+   background-color: green;
+ }
+ 
+ .psw{
+   margin-left: auto;
+   margin-right: 60px;
+   font-size: 18px;
+ }
+ 
+ a:visited{
+   color: blue;
+ }
+ 
+ .bottom{
+   background-color:#D0D0D0;
+   margin: 1px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+ }
+ 
+ .labels{
+   font-size: 20px;
+ }
+ 
+ .select{
+   width: 95%;
+   margin: 10px 0 20px 0px;
+   background-color:#e5e5e5;
+   padding: 12px;
+ }
+   
+ .modal-content .err_msg{
+   font-size: 18px;
+   color: red;
+   padding: 15px 40px;
+   text-align: center;
+ }
