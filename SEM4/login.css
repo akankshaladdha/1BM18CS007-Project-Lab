@@ -1,6 +1,6 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('home3.jpg');
+  background-image: url('images/login_bg.jpg');
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,6 +17,7 @@ input {
   display: block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  outline:none;
 }
 
 .container button {
@@ -111,8 +112,9 @@ span a:hover{
 }
 
 .modal-content {
+ /* background-color: rgba(255,255,255,0.1);*/
  background-color: transparent;
- margin: 5% auto 5% auto; 
+   margin: 5% auto 5% auto; 
  border: 1px solid black;
  width: 80%; 
  align-items: center;
