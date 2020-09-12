@@ -8,7 +8,7 @@ if(isset($_POST['reset']) && isset($_POST['email']))
  $db_host="localhost";
  $db_user="root";
  $db_pass="";
- $db_name="self";
+ $db_name="project_4";
 
  $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
  $emailid = $_POST['email'];
@@ -23,8 +23,8 @@ if(isset($_POST['reset']) && isset($_POST['email']))
         $subject="Password reset link";
         $to=$_POST['email'];
         $message =  " Welcome " . $_SESSION['firstname'] . "  \n Please click on following link to reset password .\n http://localhost/self/forgotpass.php";
-        $from= 'nitesh.cs18@bmsce.ac.in';
-        mail($to, $subject, $message, 'From: nitesh.cs18@bmsce.ac.in');
+        $from= 'akankshaladdha0625@gmail.com';
+        mail($to, $subject, $message, 'From: akankshaladdha0625@gmail.com');
         header('location: forgot.html');
     }
 
