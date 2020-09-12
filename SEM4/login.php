@@ -7,7 +7,7 @@ session_start();
  $db_host="localhost";
  $db_user="root";
  $db_pass="";
- $db_name="self";
+ $db_name="project_4";
 
  $con = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
  if(isset($_POST['login']))
@@ -15,6 +15,7 @@ session_start();
      $first = $_POST['firstname'];
      $emailid = $_POST['email'];
      $pass = $_POST['password'];
+     $one = "akankshaladdha5@gmail.com";
      
      $sql = " select * from login where loginemail='".$emailid."' limit 1";
      $result= mysqli_query($con,$sql);
@@ -34,13 +35,21 @@ session_start();
           $_SESSION['phonenumber']="";
 
          
-         if($code==1)
+         if($code=="true" || $code=="1")
          {
+           if($one==$_SESSION['email'])
+           {
+             header('location:main.php');
+           }
+           else{
             header('location: admin.php');
+           }
          }
          else
          {
-           echo 'E-mail not verified';
+            echo '<script>'; 
+            echo "alert('E-mail not verified')";
+            echo '</script>';
          }
      }
      else
@@ -69,18 +78,18 @@ session_start();
   <form class="modal-content animate" method="post">
     <div class="imgcontainer">
       
-      <img src="external.png"  class="avatar">
+      <img src="images/login_logo.png"  class="avatar">
     </div>
 
     <div class="container">
       <label for="firstname"><b>Firstname</b></label>
-      <input type="text" placeholder="Enter Firstname" name="firstname" required>
+      <input type="text" placeholder="Enter Firstname" name="firstname" autocomplete="off" required>
       
       <label for="email"><b>Email Address</b></label>
-      <input type="email" placeholder="Enter Email" name="email" required>  
+      <input type="email" placeholder="Enter Email" name="email" autocomplete="off" required>  
 
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" placeholder="Enter Password" name="password" autocomplete="off" required>
         <div>
       <button type="submit" name="login">Login</button>
       <span class="psw"><a href="forgot.php">Forgot password?</a></span>
@@ -90,7 +99,7 @@ session_start();
 
     <div class="bottom" style="background-color:#D0D0D0">
     <p class="line"><b>Not a member ?</b>
-      <button type="button" name="signup" class="cancelbtn" ><a href="regorlogin.php">Signup</a></button></p>
+      <button type="button" name="signup" class="cancelbtn" ><a href="registration.php">Signup</a></button></p>
     </div>
   </form>
 </div>
